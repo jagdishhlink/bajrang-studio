@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1a1a2e;
+  --color-secondary: #c9a96e;
+  --color-accent: #d4af37;
+  --color-bg: #ffffff;
+  --color-text: #1a1a2e;
+  --color-card-bg: #f8f6f3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── THEME: ELEGANT (Light) ─── */
+.theme-elegant {
+  --glass-bg: rgba(0, 0, 0, 0.02);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-strong-bg: rgba(0, 0, 0, 0.03);
+  --glass-strong-border: rgba(0, 0, 0, 0.08);
+  --text-muted: rgba(0, 0, 0, 0.5);
+  --text-light: rgba(0, 0, 0, 0.7);
+  --hero-overlay: rgba(0, 0, 0, 0.4);
+  --section-alt: #f8f6f3;
+}
+
+/* Override text-white and opacity variants in elegant/light theme */
+.theme-elegant .text-white { color: var(--color-text) !important; }
+.theme-elegant .text-white\/80 { color: rgba(0,0,0,0.8) !important; }
+.theme-elegant .text-white\/70 { color: rgba(0,0,0,0.7) !important; }
+.theme-elegant .text-white\/60 { color: rgba(0,0,0,0.6) !important; }
+.theme-elegant .text-white\/50 { color: rgba(0,0,0,0.5) !important; }
+.theme-elegant .text-white\/40 { color: rgba(0,0,0,0.4) !important; }
+.theme-elegant .text-white\/30 { color: rgba(0,0,0,0.3) !important; }
+.theme-elegant .text-white\/20 { color: rgba(0,0,0,0.2) !important; }
+.theme-elegant .bg-white\/5 { background: rgba(0,0,0,0.03) !important; }
+.theme-elegant .bg-white\/10 { background: rgba(0,0,0,0.05) !important; }
+.theme-elegant .bg-white\/20 { background: rgba(0,0,0,0.08) !important; }
+.theme-elegant .border-white\/5 { border-color: rgba(0,0,0,0.05) !important; }
+.theme-elegant .border-white\/10 { border-color: rgba(0,0,0,0.08) !important; }
+.theme-elegant .border-white\/20 { border-color: rgba(0,0,0,0.12) !important; }
+.theme-elegant .hover\:text-white:hover { color: var(--color-text) !important; }
+.theme-elegant .hover\:bg-white\/5:hover { background: rgba(0,0,0,0.03) !important; }
+.theme-elegant .hover\:bg-white\/10:hover { background: rgba(0,0,0,0.05) !important; }
+
+/* Hero section on elegant theme keeps white text (over dark image) */
+.theme-elegant section:first-of-type .text-white { color: #ffffff !important; }
+.theme-elegant section:first-of-type .text-white\/80 { color: rgba(255,255,255,0.8) !important; }
+.theme-elegant section:first-of-type .text-white\/70 { color: rgba(255,255,255,0.7) !important; }
+.theme-elegant section:first-of-type .text-white\/60 { color: rgba(255,255,255,0.6) !important; }
+.theme-elegant section:first-of-type .text-white\/50 { color: rgba(255,255,255,0.5) !important; }
+.theme-elegant section:first-of-type .text-white\/40 { color: rgba(255,255,255,0.4) !important; }
+
+/* Navbar keeps white text (over dark/transparent bg) when scrolled */
+.theme-elegant nav.glass-strong .text-white { color: var(--color-text) !important; }
+.theme-elegant nav:not(.glass-strong) .text-white { color: #ffffff !important; }
+
+.theme-elegant .glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.theme-elegant .glass-strong {
+  background: var(--color-card-bg);
+  border: 1px solid var(--glass-strong-border);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.theme-elegant .gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── THEME: DARK ─── */
+.theme-dark {
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-strong-bg: rgba(255, 255, 255, 0.06);
+  --glass-strong-border: rgba(255, 255, 255, 0.12);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --text-light: rgba(255, 255, 255, 0.7);
+  --hero-overlay: rgba(0, 0, 0, 0.5);
+  --section-alt: rgba(255, 255, 255, 0.02);
+}
+
+.theme-dark .glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.theme-dark .glass-strong {
+  background: var(--glass-strong-bg);
+  backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-strong-border);
+  border-radius: 20px;
+}
+
+.theme-dark .gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── SHARED UTILITIES ─── */
+.glass {
+  background: var(--glass-bg, rgba(255,255,255,0.03));
+  border: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+  border-radius: 16px;
+}
+
+.glass-strong {
+  background: var(--glass-strong-bg, var(--color-card-bg));
+  border: 1px solid var(--glass-strong-border, rgba(0,0,0,0.06));
+  border-radius: 20px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-alt {
+  background: var(--section-alt);
+}
+
+/* Swiper overrides */
+.swiper-pagination-bullet {
+  background: var(--color-secondary) !important;
+  opacity: 0.4;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+
+/* WhatsApp widget */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
